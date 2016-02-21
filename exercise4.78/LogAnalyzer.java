@@ -57,22 +57,27 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+    
+    public void gimme(int hour)
+    {
+        System.out.println(hourCounts[hour] + " " + hourCounts.length) ;
+
+    }
 
     /**
      * opdracht 4.78
      */
     public int busiestTwoHours()
     {
-        int highestTwoHours = 0;
-        int Index = 0;
-
-        for (int i = 0; i < hourCounts.length; i += 2) {
-            int tweeUur = (hourCounts[i] + hourCounts[i + 1]);
-            if (tweeUur > highestTwoHours) {
-                highestTwoHours = tweeUur;
-                Index = i;
+        int busiest = 0;
+        for (int i = 0; i < (hourCounts.length - 1); i++){
+            int sumCounts= hourCounts[i] + hourCounts[i+1];
+            if (sumCounts > busiest)
+            {
+                busiest = sumCounts;
             }
         }
-        return Index;
+        return busiest;
     }
+    
 }
